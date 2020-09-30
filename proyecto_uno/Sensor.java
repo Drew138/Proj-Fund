@@ -7,20 +7,23 @@ public class Sensor{
     }
 
     public Sensor (int e){
+
         this.estado = e;
     }
 
     public int getEstado() {
+
         return estado;
     }
 
     public void setEstado(int estado) {
+
         this.estado = estado;
     }
 
 
     public String toString(){
-        if (this.estado){
+        if (this.estado>0){
             return "Ocupado";
         }else {
             return "Libre";
@@ -30,7 +33,7 @@ public class Sensor{
     public static String sensorLibre(){
         String infoSensores = "";
         for (int i=0; i<Sensor.sensores.length; i++ ) {
-            if (Sensor.sensores[i].estado == null) {
+            if (Sensor.sensores[i] == null) {
                 infoSensores += i;
             }
         }
@@ -45,4 +48,5 @@ public class Sensor{
         return infoSensores;
     }
 }
+
 

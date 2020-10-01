@@ -75,6 +75,10 @@ public class Vehiculo {
         this.valorComercial = valorComercial;
     }
 
+    public static void setVehiculos(int num) {
+        Vehiculo.vehiculos = new Vehiculo[num];
+    }
+
     public String toString() {
 
         return this.placa + this.marca + this.color + this.valorComercial;
@@ -98,7 +102,7 @@ public class Vehiculo {
     public static Vehiculo[] sortearPorColor(String color) {
         int size = 0;
         for (int i = 0; i < Vehiculo.vehiculos.length; i++) {
-            if (Vehiculo.vehiculos[i].getColor().equalsIgnoreCase(color)) {
+            if ((Vehiculo.vehiculos[i] != null) && (Vehiculo.vehiculos[i].getColor().equalsIgnoreCase(color))) {
                 size++;
             }
         }
@@ -106,7 +110,7 @@ public class Vehiculo {
 
         int index = 0;
         for (int i = 0; i < Vehiculo.vehiculos.length; i++) {
-            if (Vehiculo.vehiculos[i].getColor().equalsIgnoreCase(color)) {
+            if ((Vehiculo.vehiculos[i] != null) && (Vehiculo.vehiculos[i].getColor().equalsIgnoreCase(color))) {
                 newVehiculos[index] = Vehiculo.vehiculos[i];
                 index++;
             }
@@ -126,10 +130,28 @@ public class Vehiculo {
 
     public static String listaValor(Vehiculo[] automoviles) {
         String listaValor = "";
-        Arrays.sort(automoviles, (v1, v2) -> Vehiculo.comparator(v1, v2));
+        int cantidadVehiculos = 0;
+        int j= 0;
 
-        for (int i=0; i<automoviles.length; i++){
-            listaValor += automoviles[i].toString()+ " ";
+        for (int x=0; x<automoviles.length; x++){
+            if (automoviles[x] != null) {
+                cantidadVehiculos++
+            }
+        }
+        Vehiculo[] carros = new Vehiculo[cantidadVehiculos];
+
+        for (int y=0; y<automoviles.length; y++){
+            if (automoviles[y] != null) {
+                carros[j] = automoviles[y];
+                j++
+            }
+        }
+
+
+        Arrays.sort(carrros, (v1, v2) -> Vehiculo.comparator(v1, v2));
+
+        for (int i=0; i<carros.length; i++){
+            listaValor += carros[i].toString()+ " ";
         }
 
         return listaValor;

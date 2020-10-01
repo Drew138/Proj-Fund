@@ -21,6 +21,14 @@ public class Sensor {
         this.estado = estado;
     }
 
+    public static void setSensores(int numero){
+        Sensor.sensores = new Sensor[numero];
+
+        for(int i=0; i<numero;i++){
+            Sensor.sensores[i] = new Sensor(0);
+        }
+    }
+
     public String toString() {
         if (this.estado > 0) {
             return "Ocupado";
@@ -32,7 +40,7 @@ public class Sensor {
     public static String sensorLibre() {
         String infoSensores = "";
         for (int i = 0; i < Sensor.sensores.length; i++) {
-            if (Sensor.sensores[i] == null) {
+            if (Sensor.sensores[i].getEstado() == 0) {
                 infoSensores += i;
             }
         }

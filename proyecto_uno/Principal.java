@@ -12,8 +12,8 @@ public class Principal {
         int lugar;
         String vehiculos;
 
-        // Vehiculo.vehiculos;
-        // Sensor.sensores;
+        Vehiculo.setVehiculos(cantEspacios);
+        Sensor.setSensores(cantEspacios);
 
         int accion = scan.nextInt();
         while (accion != 0) {
@@ -24,12 +24,12 @@ public class Principal {
 
                 case 2:
                     lugar = scan.nextInt();
-                    if (Sensor.sensorLibre().indexOf(lugar) != -1) {
+                    if (Sensor.sensores[lugar].getEstado() == 0) {
                         String placa = scan.next();
                         String marca = scan.next();
                         String color = scan.next();
                         Vehiculo vehiculo = new Vehiculo(placa, marca, color);
-
+                        Vehiculo.vehiculos[lugar] = vehiculo;
                         Sensor.sensores[lugar].setEstado(1);
 
                         System.out.println(vehiculo.toString());
@@ -41,14 +41,14 @@ public class Principal {
                 case 3:
                     lugar = scan.nextInt();
 
-                    if (Sensor.sensorLibre().indexOf(lugar) != -1) {
+                    if (Sensor.sensores[lugar].getEstado() == 0) {
                         String placa = scan.next();
                         String marca = scan.next();
                         String color = scan.next();
                         int valorComercial = scan.nextInt();
 
                         Vehiculo vehiculo = new Vehiculo(placa, marca, color, valorComercial);
-
+                        Vehiculo.vehiculos[lugar] = vehiculo;
                         Sensor.sensores[lugar].setEstado(1);
 
                         System.out.println(vehiculo.toString());

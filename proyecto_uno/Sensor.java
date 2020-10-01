@@ -1,3 +1,5 @@
+package proyecto_uno;
+
 public class Sensor {
     public static Sensor[] sensores;
     private int estado;
@@ -12,19 +14,16 @@ public class Sensor {
     }
 
     public int getEstado() {
-
         return estado;
     }
 
     public void setEstado(int estado) {
-
         this.estado = estado;
     }
 
-    public static void setSensores(int numero){
+    public static void setSensores(int numero) {
         Sensor.sensores = new Sensor[numero];
-
-        for(int i=0; i<numero;i++){
+        for (int i = 0; i < numero; i++) {
             Sensor.sensores[i] = new Sensor(0);
         }
     }

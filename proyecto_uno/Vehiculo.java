@@ -1,3 +1,5 @@
+package proyecto_uno;
+
 import java.util.Arrays;
 
 public class Vehiculo {
@@ -131,27 +133,26 @@ public class Vehiculo {
     public static String listaValor(Vehiculo[] automoviles) {
         String listaValor = "";
         int cantidadVehiculos = 0;
-        int j= 0;
+        int j = 0;
 
-        for (int x=0; x<automoviles.length; x++){
+        for (int x = 0; x < automoviles.length; x++) {
             if (automoviles[x] != null) {
-                cantidadVehiculos++
+                cantidadVehiculos++;
             }
         }
         Vehiculo[] carros = new Vehiculo[cantidadVehiculos];
 
-        for (int y=0; y<automoviles.length; y++){
+        for (int y = 0; y < automoviles.length; y++) {
             if (automoviles[y] != null) {
                 carros[j] = automoviles[y];
-                j++
+                j++;
             }
         }
 
+        Arrays.sort(carros, (v1, v2) -> Vehiculo.comparator(v1, v2));
 
-        Arrays.sort(carrros, (v1, v2) -> Vehiculo.comparator(v1, v2));
-
-        for (int i=0; i<carros.length; i++){
-            listaValor += carros[i].toString()+ " ";
+        for (int i = 0; i < carros.length; i++) {
+            listaValor += carros[i].toString() + " ";
         }
 
         return listaValor;

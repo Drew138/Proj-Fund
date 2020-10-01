@@ -127,6 +127,11 @@ public class Vehiculo {
     public static String listaValor(Vehiculo[] automoviles) {
         String listaValor = "";
         Arrays.sort(automoviles, (v1, v2) -> Vehiculo.comparator(v1, v2));
+
+        for (int i=0; i<automoviles.length; i++){
+            listaValor += automoviles[i].toString()+ " ";
+        }
+
         return listaValor;
     }
 

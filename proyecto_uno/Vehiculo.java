@@ -1,4 +1,6 @@
-public class Vehiculo{
+import java.util.Arrays;
+
+public class Vehiculo {
     public static Vehiculo[] vehiculos;
     public static int cantidad = 0;
     private String placa;
@@ -6,16 +8,16 @@ public class Vehiculo{
     private String color;
     private int valorComercial;
 
-    public Vehiculo(){
+    public Vehiculo() {
 
     }
 
-    public Vehiculo(String p, String m, String c){
+    public Vehiculo(String p, String m, String c) {
 
-        this(p,m,c,30000000);
+        this(p, m, c, 30000000);
     }
 
-    public Vehiculo(String p, String m, String c, int v){
+    public Vehiculo(String p, String m, String c, int v) {
         this.placa = p;
         this.marca = m;
         this.color = c;
@@ -73,15 +75,14 @@ public class Vehiculo{
         this.valorComercial = valorComercial;
     }
 
-
-    public String toString(){
+    public String toString() {
 
         return this.placa + this.marca + this.color + this.valorComercial;
     }
 
-    public static String toStringVehiculos(){
+    public static String toStringVehiculos() {
         String infoVehiculo = "";
-        for (int i=0; i<Vehiculo.vehiculos.length; i++ ) {
+        for (int i = 0; i < Vehiculo.vehiculos.length; i++) {
             if (Vehiculo.vehiculos[i] != null) {
                 infoVehiculo += Vehiculo.vehiculos[i].toString();
             }
@@ -89,34 +90,43 @@ public class Vehiculo{
         return infoVehiculo;
     }
 
-    public int cantidadVehiculos(){
+    public int cantidadVehiculos() {
 
         return Vehiculo.cantidad;
     }
 
-    public static Vehiculo[] sortearPorColor(String color){
+    public static Vehiculo[] sortearPorColor(String color) {
         int size = 0;
-      for(int i = 0; i<Vehiculo.vehiculos.length; i++){
-          if(Vehiculo.vehiculos[i].getColor().equalsIgnoreCase(color)){
-              size++;
-          }
-      }
-      Vehiculo[] newVehiculos = new Vehiculo[size];
+        for (int i = 0; i < Vehiculo.vehiculos.length; i++) {
+            if (Vehiculo.vehiculos[i].getColor().equalsIgnoreCase(color)) {
+                size++;
+            }
+        }
+        Vehiculo[] newVehiculos = new Vehiculo[size];
 
-      int index = 0;
-        for(int i = 0; i<Vehiculo.vehiculos.length; i++){
-            if(Vehiculo.vehiculos[i].getColor().equalsIgnoreCase(color)){
-                newVehiculos [index]=Vehiculo.vehiculos[i];
-            index++;
+        int index = 0;
+        for (int i = 0; i < Vehiculo.vehiculos.length; i++) {
+            if (Vehiculo.vehiculos[i].getColor().equalsIgnoreCase(color)) {
+                newVehiculos[index] = Vehiculo.vehiculos[i];
+                index++;
             }
         }
         return newVehiculos;
     }
 
-    public static String listaValor(Vehiculo[] vehiculos){
+    public static int comparator(Vehiculo v1, Vehiculo v2) {
+        if (v1.valorComercial > v2.valorComercial) {
+            return 1;
+        } else if (v1.valorComercial < v2.valorComercial) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
+    public static String listaValor(Vehiculo[] automoviles) {
         String listaValor = "";
-
-
+        Arrays.sort(automoviles, (v1, v2) -> Vehiculo.comparator(v1, v2));
         return listaValor;
     }
 

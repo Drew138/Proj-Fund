@@ -1,12 +1,12 @@
-public class Sensor{
+public class Sensor {
     public static Sensor[] sensores;
     private int estado;
 
-    public Sensor () {
+    public Sensor() {
 
     }
 
-    public Sensor (int e){
+    public Sensor(int e) {
 
         this.estado = e;
     }
@@ -21,18 +21,17 @@ public class Sensor{
         this.estado = estado;
     }
 
-
-    public String toString(){
-        if (this.estado>0){
+    public String toString() {
+        if (this.estado > 0) {
             return "Ocupado";
-        }else {
+        } else {
             return "Libre";
         }
     }
 
-    public static String sensorLibre(){
+    public static String sensorLibre() {
         String infoSensores = "";
-        for (int i=0; i<Sensor.sensores.length; i++ ) {
+        for (int i = 0; i < Sensor.sensores.length; i++) {
             if (Sensor.sensores[i] == null) {
                 infoSensores += i;
             }
@@ -40,13 +39,11 @@ public class Sensor{
         return infoSensores;
     }
 
-    public static String sensoresEstado(){
+    public static String sensoresEstado() {
         String infoSensores = "";
-        for (int i=0; i<Sensor.sensores.length; i++ ){
+        for (int i = 0; i < Sensor.sensores.length; i++) {
             infoSensores += Sensor.sensores[i].getEstado();
         }
         return infoSensores;
     }
 }
-
-

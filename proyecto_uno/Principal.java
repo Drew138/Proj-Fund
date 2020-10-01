@@ -1,29 +1,30 @@
 import java.util.Scanner;
-public class Principal{
+
+public class Principal {
     public static void main(String[] args) {
         Principal.mostrarMenu();
     }
 
-    public static void mostrarMenu(){
+    public static void mostrarMenu() {
         Scanner scan = new Scanner(System.in);
 
         int cantEspacios = scan.nextInt();
         int lugar;
         String vehiculos;
 
-       // Vehiculo.vehiculos;
+        // Vehiculo.vehiculos;
         // Sensor.sensores;
 
         int accion = scan.nextInt();
-        while (accion !=0){
-            switch (accion){
+        while (accion != 0) {
+            switch (accion) {
                 case 1:
                     System.out.println(Sensor.sensorLibre());
                     break;
 
                 case 2:
-                     lugar = scan.nextInt();
-                    if(Sensor.sensorLibre().indexOf(lugar) != -1){
+                    lugar = scan.nextInt();
+                    if (Sensor.sensorLibre().indexOf(lugar) != -1) {
                         String placa = scan.next();
                         String marca = scan.next();
                         String color = scan.next();
@@ -33,14 +34,14 @@ public class Principal{
 
                         System.out.println(vehiculo.toString());
 
-                    }else {
+                    } else {
                         System.out.println("Lo sentimos, esta ocupado");
                     }
                     break;
                 case 3:
                     lugar = scan.nextInt();
 
-                    if(Sensor.sensorLibre().indexOf(lugar) != -1){
+                    if (Sensor.sensorLibre().indexOf(lugar) != -1) {
                         String placa = scan.next();
                         String marca = scan.next();
                         String color = scan.next();
@@ -52,7 +53,7 @@ public class Principal{
 
                         System.out.println(vehiculo.toString());
 
-                    }else {
+                    } else {
                         System.out.println("Lo sentimos, esta ocupado");
                     }
                     break;
@@ -87,16 +88,14 @@ public class Principal{
 
                     break;
 
+                default:
+                    System.out.println("Comando incorrecto");
 
-                    default:
-                        System.out.println("Comando incorrecto");
+                    break;
 
-                        break;
+            }
 
-                    }
-
-             accion = scan.nextInt();
-        }
+            accion = scan.nextInt();
         }
     }
-
+}

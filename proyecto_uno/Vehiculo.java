@@ -28,52 +28,42 @@ public class Vehiculo {
     }
 
     public static int getCantidad() {
-
         return cantidad;
     }
 
     public int getValorComercial() {
-
         return valorComercial;
     }
 
     public String getColor() {
-
         return color;
     }
 
     public String getMarca() {
-
         return marca;
     }
 
     public String getPlaca() {
-
         return placa;
     }
 
     public static void setCantidad(int cantidad) {
-
         Vehiculo.cantidad = cantidad;
     }
 
     public void setColor(String color) {
-
         this.color = color;
     }
 
     public void setMarca(String marca) {
-
         this.marca = marca;
     }
 
     public void setPlaca(String placa) {
-
         this.placa = placa;
     }
 
     public void setValorComercial(int valorComercial) {
-
         this.valorComercial = valorComercial;
     }
 
@@ -82,7 +72,6 @@ public class Vehiculo {
     }
 
     public String toString() {
-
         return this.placa + this.marca + this.color + this.valorComercial;
     }
 
@@ -97,7 +86,6 @@ public class Vehiculo {
     }
 
     public int cantidadVehiculos() {
-
         return Vehiculo.cantidad;
     }
 
@@ -109,7 +97,6 @@ public class Vehiculo {
             }
         }
         Vehiculo[] newVehiculos = new Vehiculo[size];
-
         int index = 0;
         for (int i = 0; i < Vehiculo.vehiculos.length; i++) {
             if ((Vehiculo.vehiculos[i] != null) && (Vehiculo.vehiculos[i].getColor().equalsIgnoreCase(color))) {
@@ -148,14 +135,10 @@ public class Vehiculo {
                 j++;
             }
         }
-
         Arrays.sort(carros, (v1, v2) -> Vehiculo.comparator(v1, v2));
-
         for (int i = 0; i < carros.length; i++) {
             listaValor += carros[i].toString() + " ";
         }
-
         return listaValor;
     }
-
 }

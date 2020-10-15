@@ -39,10 +39,10 @@ public class Sensor {
     public static String sensorLibre() {
         String infoSensores = "";
         for (int i = 0; i < Sensor.sensores.length; i++) {
-            if (Sensor.sensores[i].getEstado() == 0) && (i==Sensor.sensores.length-1){
-                infoSensores += i+ " - ";
-            }else if(Sensor.sensores[i].getEstado()==0){
-                infoSensores +=i;
+            if ((Sensor.sensores[i].getEstado() == 0) && (i != Sensor.sensores.length - 1)) {
+                infoSensores += i + " - ";
+            } else if (Sensor.sensores[i].getEstado() == 0) {
+                infoSensores += i;
             }
         }
         return infoSensores;

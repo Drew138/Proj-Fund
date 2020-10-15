@@ -72,14 +72,15 @@ public class Vehiculo {
     }
 
     public String toString() {
-        return "|  PLACA: "+this.placa+"\n" + "|  MARCA: "+this.marca+"\n" + "|  COLOR: "+this.color+"\n" + "|  VALOR COMERCIAL: "+this.valorComercial+"\n";
+        return "|  PLACA: " + this.placa + "\n" + "|  MARCA: " + this.marca + "\n" + "|  COLOR: " + this.color + "\n"
+                + "|  VALOR COMERCIAL: " + this.valorComercial + "\n";
     }
 
     public static String toStringVehiculos() {
         String infoVehiculo = "";
         for (int i = 0; i < Vehiculo.vehiculos.length; i++) {
             if (Vehiculo.vehiculos[i] != null) {
-                infoVehiculo += Vehiculo.vehiculos[i].toString()+"------------------";
+                infoVehiculo += Vehiculo.vehiculos[i].toString() + "------------------";
             }
         }
         return infoVehiculo;
@@ -137,7 +138,7 @@ public class Vehiculo {
         }
         Arrays.sort(carros, (v1, v2) -> Vehiculo.comparator(v1, v2));
         for (int i = 0; i < carros.length; i++) {
-            listaValor += carros[i].toString() + " ";
+            listaValor += carros[i].toString();
         }
         return listaValor;
     }

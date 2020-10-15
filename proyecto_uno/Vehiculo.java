@@ -72,14 +72,14 @@ public class Vehiculo {
     }
 
     public String toString() {
-        return this.placa + this.marca + this.color + this.valorComercial;
+        return "|  PLACA: "+this.placa+"\n" + "|  MARCA: "+this.marca+"\n" + "|  COLOR: "+this.color+"\n" + "|  VALOR COMERCIAL: "+this.valorComercial+"\n";
     }
 
     public static String toStringVehiculos() {
         String infoVehiculo = "";
         for (int i = 0; i < Vehiculo.vehiculos.length; i++) {
             if (Vehiculo.vehiculos[i] != null) {
-                infoVehiculo += Vehiculo.vehiculos[i].toString();
+                infoVehiculo += Vehiculo.vehiculos[i].toString()+"------------------";
             }
         }
         return infoVehiculo;

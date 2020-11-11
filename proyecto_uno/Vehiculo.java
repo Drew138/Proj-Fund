@@ -1,6 +1,7 @@
 package proyecto_uno;
 
 import java.util.Arrays;
+import java.time.LocalDataTime;
 
 public class Vehiculo {
     public static Vehiculo[] vehiculos;
@@ -9,6 +10,8 @@ public class Vehiculo {
     private String marca;
     private String color;
     private int valorComercial;
+    private String tipo;
+    private LocalDataTime fechaEntrada;
 
     public Vehiculo() {
 
@@ -17,6 +20,8 @@ public class Vehiculo {
     public Vehiculo(String p, String m, String c) {
 
         this(p, m, c, 30000000);
+
+        this.fechaEntrada = LocaDataTime.now();
     }
 
     public Vehiculo(String p, String m, String c, int v) {
@@ -25,6 +30,8 @@ public class Vehiculo {
         this.color = c;
         this.valorComercial = v;
         Vehiculo.cantidad++;
+
+        this.fechaEntrada = LocaDataTime.now();
     }
 
     public static int getCantidad() {
@@ -71,9 +78,17 @@ public class Vehiculo {
         Vehiculo.vehiculos = new Vehiculo[num];
     }
 
+    public LocalDataTime getFechaEntrada() {
+        return fechaEntrada;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
     public String toString() {
         return "|  PLACA: " + this.placa + "\n" + "|  MARCA: " + this.marca + "\n" + "|  COLOR: " + this.color + "\n"
-                + "|  VALOR COMERCIAL: " + this.valorComercial + "\n";
+                + "|  VALOR COMERCIAL: " + this.valorComercial + "\n" + "|  TIPO VEHICULO: " + this.tipo + "\n" + "|  FECHA DE INGRESO: " + this.fechaEntrada + "\n";
     }
 
     public static String toStringVehiculos() {

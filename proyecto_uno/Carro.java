@@ -1,9 +1,9 @@
-public class Carro extends Vehiculo{
-    public Carro(){
+class Carro extends Vehiculo {
+    public Carro() {
         this.tipo = "carro";
     }
 
-    public void imprimitTipo(){
+    public void imprimitTipo() {
         System.out.println(this.tipo);
     }
 }

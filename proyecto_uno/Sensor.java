@@ -1,10 +1,8 @@
 package proyecto_uno;
-import java.time.LocalDataTime;
 
 public class Sensor {
     public static Sensor[] sensores;
     private int estado;
-    private LocalDataTime informacionEntrada;
 
     public Sensor() {
 

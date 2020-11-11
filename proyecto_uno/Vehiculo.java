@@ -10,7 +10,7 @@ public class Vehiculo {
     private String marca;
     private String color;
     private int valorComercial;
-    private String tipo;
+    protected String tipo;
     private LocalDataTime fechaEntrada;
 
     public Vehiculo() {
@@ -88,7 +88,8 @@ public class Vehiculo {
 
     public String toString() {
         return "|  PLACA: " + this.placa + "\n" + "|  MARCA: " + this.marca + "\n" + "|  COLOR: " + this.color + "\n"
-                + "|  VALOR COMERCIAL: " + this.valorComercial + "\n" + "|  TIPO VEHICULO: " + this.tipo + "\n" + "|  FECHA DE INGRESO: " + this.fechaEntrada + "\n";
+                + "|  VALOR COMERCIAL: " + this.valorComercial + "\n" + "|  TIPO VEHICULO: " + this.tipo + "\n"
+                + "|  FECHA DE INGRESO: " + this.fechaEntrada + "\n";
     }
 
     public static String toStringVehiculos() {

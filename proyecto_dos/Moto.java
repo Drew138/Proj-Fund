@@ -1,4 +1,4 @@
-package proyecto_uno
+package proyecto_dos;
 
 class Moto extends Vehiculo {
 

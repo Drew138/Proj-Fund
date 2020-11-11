@@ -1,4 +1,4 @@
-package proyecto_uno;
+package proyecto_dos;
 
 public class Sensor {
     public static Sensor[] sensores;

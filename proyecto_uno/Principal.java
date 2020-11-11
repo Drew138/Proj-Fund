@@ -9,27 +9,31 @@ import java.io.IOException;
 
 public class Principal {
     private static String comandos = "                               Ingrese la accion a realizar                               \n"
-            + "†----------------------------------------------------------------------------------------†\n"
-            + "| COMANDO 0 | ⇒ |  Terminar ejecucion                                                    |\n"
-            + "†----------------------------------------------------------------------------------------†\n"
-            + "| COMANDO 1 | ⇒ |  Imprimir lugares desocupados                                          |\n"
-            + "†----------------------------------------------------------------------------------------†\n"
-            + "| COMANDO 2 | ⇒ |  Ingresar PLACA-MARCA-COLOR del vehiculo                               |\n"
-            + "†----------------------------------------------------------------------------------------†\n"
-            + "| COMANDO 3 | ⇒ |  Ingresar PLACA-MARCA-COLOR-PRECIO del vehiculo                        |\n"
-            + "†----------------------------------------------------------------------------------------†\n"
-            + "| COMANDO 4 | ⇒ |  Mostrar la informacion de los vehiculos ingresados en el sistema      |\n"
-            + "†----------------------------------------------------------------------------------------†\n"
-            + "| COMANDO 5 | ⇒ |  Mostrar la cantidad de vehiculos ingresados en el sistema             |\n"
-            + "†----------------------------------------------------------------------------------------†\n"
-            + "| COMANDO 6 | ⇒ |  Verificar el estado de lugar                                          |\n"
-            + "†----------------------------------------------------------------------------------------†\n"
-            + "| COMANDO 7 | ⇒ |  Mostrar el estado de todos los lugares                                |\n"
-            + "†----------------------------------------------------------------------------------------†\n"
-            + "| COMANDO 8 | ⇒ |  Mostrar ordenadamente la informacion de vehiculos con el color deseado|\n"
-            + "†----------------------------------------------------------------------------------------†\n"
-            + "| COMANDO 9 | ⇒ |  Mostrar la informacion de vehiculos ordenados por su valor comercial  |\n"
-            + "†----------------------------------------------------------------------------------------†\n"
+            + "†-----------------------------------------------------------------------------------------†\n"
+            + "| COMANDO  0 | ⇒ |  Terminar ejecucion                                                    |\n"
+            + "†-----------------------------------------------------------------------------------------†\n"
+            + "| COMANDO  1 | ⇒ |  Imprimir lugares desocupados                                          |\n"
+            + "†-----------------------------------------------------------------------------------------†\n"
+            + "| COMANDO  2 | ⇒ |  Ingresar PLACA-MARCA-COLOR del vehiculo                               |\n"
+            + "†-----------------------------------------------------------------------------------------†\n"
+            + "| COMANDO  3 | ⇒ |  Ingresar PLACA-MARCA-COLOR-PRECIO del vehiculo                        |\n"
+            + "†-----------------------------------------------------------------------------------------†\n"
+            + "| COMANDO  4 | ⇒ |  Mostrar la informacion de los vehiculos ingresados en el sistema      |\n"
+            + "†-----------------------------------------------------------------------------------------†\n"
+            + "| COMANDO  5 | ⇒ |  Mostrar la cantidad de vehiculos ingresados en el sistema             |\n"
+            + "†-----------------------------------------------------------------------------------------†\n"
+            + "| COMANDO  6 | ⇒ |  Verificar el estado de lugar                                          |\n"
+            + "†-----------------------------------------------------------------------------------------†\n"
+            + "| COMANDO  7 | ⇒ |  Mostrar el estado de todos los lugares                                |\n"
+            + "†-----------------------------------------------------------------------------------------†\n"
+            + "| COMANDO  8 | ⇒ |  Mostrar ordenadamente la informacion de vehiculos con el color deseado|\n"
+            + "†-----------------------------------------------------------------------------------------†\n"
+            + "| COMANDO  9 | ⇒ |  Mostrar la informacion de vehiculos ordenados por su valor comercial  |\n"
+            + "†-----------------------------------------------------------------------------------------†\n"
+            + "| COMANDO 10 | ⇒ | Desocupar espacio                                                      |\n"
+            + "†-----------------------------------------------------------------------------------------†\n"
+            + "| COMANDO 11 | ⇒ |  Exportar txt con informacion de los vehiculos ingresados              |\n"
+            + "†-----------------------------------------------------------------------------------------†\n"
             + "Accion: ";
 
     public static void main(String[] args) {
@@ -43,7 +47,7 @@ public class Principal {
         int lugar;
         System.out.print("Ingrese el cobro por carro por hora: ");
         int cobroCarro = scan.nextInt();
-        System.out.print("Ingrese el cobro por carro por hora: ");
+        System.out.print("Ingrese el cobro por moto por hora: ");
         int cobroMoto = scan.nextInt();
         String vehiculos;
         Vehiculo.setVehiculos(cantEspacios);
@@ -188,13 +192,13 @@ public class Principal {
                             int precioHora = tipoVehiculo == "moto" ? cobroMoto : cobroCarro;
                             float cobro = (((float) precioHora) / 60) * diferencia;
 
-                            System.out.print("Su cobro total es de: " + cobro);
+                            System.out.println("Su cobro total es de: " + cobro);
                         } else {
-                            System.out.print("Este espacio no contiene ningun vehiculo");
+                            System.out.println("Este espacio no contiene ningun vehiculo");
                         }
 
                     } catch (ArrayIndexOutOfBoundsException e) {
-                        System.out.print("Esta posicion no existe");
+                        System.out.println("Esta posicion no existe");
                     }
                     break;
                 case 11:
@@ -206,8 +210,9 @@ public class Principal {
                             }
                         }
                         writer.close();
+                        System.out.println("Archivo guardado correctamente");
                     } catch (IOException e) {
-                        System.out.print("Error al escribir el archivo");
+                        System.out.println("Error al escribir el archivo");
 
                     }
 

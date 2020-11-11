@@ -2,7 +2,7 @@ package proyecto_uno;
 
 import java.lang.ArrayIndexOutOfBoundsException;
 import java.util.Scanner;
-import java.time.LocalDataTime;
+import java.time.LocalDateTime;
 import java.time.Duration;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -71,16 +71,15 @@ public class Principal {
                             String tipo = scan.next();
                             switch (tipo) {
                                 case "carro":
-                                    Vehiculo vehiculo = new Carro();
+                                    Vehiculo vehiculo = new Carro(placa, marca, color);
                                     break;
                                 case "moto":
-                                    Vehiculo vehiculo = new Moto();
+                                    Vehiculo vehiculo = new Moto(placa, marca, color);
                                     break;
 
                                 default:
                                     throw new TipoVehiculoInvalido();
                             }
-                            Vehiculo vehiculo = new Vehiculo(placa, marca, color);
                             Vehiculo.vehiculos[lugar] = vehiculo;
                             Sensor.sensores[lugar].setEstado(1);
                             System.out.println(vehiculo.toString());
@@ -110,16 +109,15 @@ public class Principal {
                             String tipo = scan.next();
                             switch (tipo) {
                                 case "carro":
-                                    Vehiculo vehiculo = new Carro();
+                                    Vehiculo vehiculo = new Carro(placa, marca, color, valorComercial);
                                     break;
                                 case "moto":
-                                    Vehiculo vehiculo = new Moto();
+                                    Vehiculo vehiculo = new Moto(placa, marca, color, valorComercial);
                                     break;
 
                                 default:
                                     throw new TipoVehiculoInvalido();
                             }
-                            Vehiculo vehiculo = new Vehiculo(placa, marca, color, valorComercial);
                             Vehiculo.vehiculos[lugar] = vehiculo;
                             Sensor.sensores[lugar].setEstado(1);
                             System.out.println(vehiculo.toString());
@@ -177,16 +175,16 @@ public class Principal {
                     lugar = scan.nextInt();
                     try {
                         if(Sensor.sensores[lugar].getEstado()>0){
-                           Sensor sensor = Sensor.sensores[lugar];
+                            Sensor sensor = Sensor.sensores[lugar];
                             Vehiculo vehiculo = Vehiculo.vehiculos[lugar];
                             Sensor.sensores[lugar].setEstado(0);
                             Vehiculo.vehiculos[lugar] = null;
 
-                            LocalDataTime fechaActual = LocalDataTime.now();
-                            int diferencia = Duration.between(fechaActual, vehiculo.getFechaEntrada()).toMinutes();
+                            LocalDateTime fechaActual = LocalDateTime.now();
+                            long diferencia = Duration.between(fechaActual, vehiculo.getFechaEntrada()).toMinutes();
                             String tipoVehiculo = vehiculo.getTipo();
                             int precioHora = tipoVehiculo == "moto" ? cobroMoto : cobroCarro;
-                            int cobro = (((float)precioHora)/60)*diferencia;
+                            float cobro = (((float)precioHora)/60)*diferencia;
 
                             System.out.print("Su cobro total es de: " + cobro);
                         }else{
@@ -194,7 +192,7 @@ public class Principal {
                         }
 
                     } catch (ArrayIndexOutOfBoundsException e){
-                            System.out.print("Esta posicion no existe");
+                        System.out.print("Esta posicion no existe");
                     }
                     break;
                 case 11:
@@ -205,13 +203,11 @@ public class Principal {
                                 writer.write(Vehiculo.vehiculos[i].toString());
                             }
                         }
-                    }catch (IOException){
+                        writer.close();
+                    }catch (IOException e){
                         System.out.print("Error al escribir el archivo");
 
-                    }finally {
-                        writer.close();
                     }
-
 
                     break;
                 default:

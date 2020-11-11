@@ -1,5 +1,12 @@
 class Carro extends Vehiculo {
-    public Carro() {
+
+    public Carro(String p, String m, String c){
+        super(p, m, c, 30000000);
+        this.tipo = "carro";
+    }
+
+    public Carro(String p, String m, String c, int v){
+        super(p, m, c, v);
         this.tipo = "carro";
     }
 

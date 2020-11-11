@@ -1,5 +1,12 @@
 class Moto extends Vehiculo {
-    public Moto() {
+
+    public Moto(String p, String m, String c){
+        super(p, m, c, 30000000);
+        this.tipo = "moto";
+    }
+
+    public Moto(String p, String m, String c, int v){
+        super(p, m, c, v);
         this.tipo = "moto";
     }
 

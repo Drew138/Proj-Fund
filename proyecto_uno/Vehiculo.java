@@ -1,7 +1,7 @@
 package proyecto_uno;
 
 import java.util.Arrays;
-import java.time.LocalDataTime;
+import java.time.LocalDateTime;
 
 public class Vehiculo {
     public static Vehiculo[] vehiculos;
@@ -11,7 +11,7 @@ public class Vehiculo {
     private String color;
     private int valorComercial;
     protected String tipo;
-    private LocalDataTime fechaEntrada;
+    private LocalDateTime fechaEntrada;
 
     public Vehiculo() {
 
@@ -21,7 +21,7 @@ public class Vehiculo {
 
         this(p, m, c, 30000000);
 
-        this.fechaEntrada = LocaDataTime.now();
+        this.fechaEntrada = LocalDateTime.now();
     }
 
     public Vehiculo(String p, String m, String c, int v) {
@@ -31,7 +31,7 @@ public class Vehiculo {
         this.valorComercial = v;
         Vehiculo.cantidad++;
 
-        this.fechaEntrada = LocaDataTime.now();
+        this.fechaEntrada = LocalDateTime.now();
     }
 
     public static int getCantidad() {
@@ -78,7 +78,7 @@ public class Vehiculo {
         Vehiculo.vehiculos = new Vehiculo[num];
     }
 
-    public LocalDataTime getFechaEntrada() {
+    public LocalDateTime getFechaEntrada() {
         return fechaEntrada;
     }
 

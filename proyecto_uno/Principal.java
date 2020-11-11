@@ -69,12 +69,13 @@ public class Principal {
                             String color = scan.next();
                             System.out.print("Ingrese el tipo de su vehiculo: ");
                             String tipo = scan.next();
+                            Vehiculo vehiculo;
                             switch (tipo) {
                                 case "carro":
-                                    Vehiculo vehiculo = new Carro(placa, marca, color);
+                                    vehiculo = new Carro(placa, marca, color);
                                     break;
                                 case "moto":
-                                    Vehiculo vehiculo = new Moto(placa, marca, color);
+                                    vehiculo = new Moto(placa, marca, color);
                                     break;
 
                                 default:
@@ -88,7 +89,7 @@ public class Principal {
                         }
                     } catch (ArrayIndexOutOfBoundsException e) {
                         System.out.println("Esta posicion no existe");
-                    } catch (TipoVehiculoInvalido e){
+                    } catch (TipoVehiculoInvalido e) {
                         System.out.println("Tipo de vehiculo invalido");
                     }
                     break;
@@ -107,12 +108,13 @@ public class Principal {
                             int valorComercial = scan.nextInt();
                             System.out.print("Ingrese el tipo de su vehiculo: ");
                             String tipo = scan.next();
+                            Vehiculo vehiculo;
                             switch (tipo) {
                                 case "carro":
-                                    Vehiculo vehiculo = new Carro(placa, marca, color, valorComercial);
+                                    vehiculo = new Carro(placa, marca, color, valorComercial);
                                     break;
                                 case "moto":
-                                    Vehiculo vehiculo = new Moto(placa, marca, color, valorComercial);
+                                    vehiculo = new Moto(placa, marca, color, valorComercial);
                                     break;
 
                                 default:
@@ -126,7 +128,7 @@ public class Principal {
                         }
                     } catch (ArrayIndexOutOfBoundsException e) {
                         System.out.println("Esta posicion no existe");
-                    } catch (TipoVehiculoInvalido e){
+                    } catch (TipoVehiculoInvalido e) {
                         System.out.println("Tipo de vehiculo invalido");
                     }
                     break;
@@ -174,7 +176,7 @@ public class Principal {
                     System.out.print("Ingrese el lugar a desocupar: ");
                     lugar = scan.nextInt();
                     try {
-                        if(Sensor.sensores[lugar].getEstado()>0){
+                        if (Sensor.sensores[lugar].getEstado() > 0) {
                             Sensor sensor = Sensor.sensores[lugar];
                             Vehiculo vehiculo = Vehiculo.vehiculos[lugar];
                             Sensor.sensores[lugar].setEstado(0);
@@ -184,27 +186,27 @@ public class Principal {
                             long diferencia = Duration.between(fechaActual, vehiculo.getFechaEntrada()).toMinutes();
                             String tipoVehiculo = vehiculo.getTipo();
                             int precioHora = tipoVehiculo == "moto" ? cobroMoto : cobroCarro;
-                            float cobro = (((float)precioHora)/60)*diferencia;
+                            float cobro = (((float) precioHora) / 60) * diferencia;
 
                             System.out.print("Su cobro total es de: " + cobro);
-                        }else{
+                        } else {
                             System.out.print("Este espacio no contiene ningun vehiculo");
                         }
 
-                    } catch (ArrayIndexOutOfBoundsException e){
+                    } catch (ArrayIndexOutOfBoundsException e) {
                         System.out.print("Esta posicion no existe");
                     }
                     break;
                 case 11:
                     try {
                         FileWriter writer = new FileWriter("Vehiculos.txt");
-                        for(int i = 0; i<Vehiculo.vehiculos.length; i++){
-                            if(Vehiculo.vehiculos[i]!=null) {
+                        for (int i = 0; i < Vehiculo.vehiculos.length; i++) {
+                            if (Vehiculo.vehiculos[i] != null) {
                                 writer.write(Vehiculo.vehiculos[i].toString());
                             }
                         }
                         writer.close();
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         System.out.print("Error al escribir el archivo");
 
                     }

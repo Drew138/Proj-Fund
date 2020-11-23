@@ -40,30 +40,20 @@ public class Bichos {
     public static boolean sigueJugando() {
         boolean sigueJugando = false;
 
-        for (int i = 0; i < 4; i++) {
-            switch (i) {
-                case 1:
-                    if (Bichos.bichos[0][0] != null) {
-                        sigueJugando = true;
-                    }
-                    break;
-                case 2:
-                    if (Bichos.bichos[0][1] != null) {
-                        sigueJugando = true;
-                    }
-                    break;
-                case 3:
+        if (Bichos.bichos[0][0] != null) {
+            sigueJugando = true;
+        }
 
-                    if (Bichos.bichos[1][0] != null) {
-                        sigueJugando = true;
-                    }
-                    break;
-                case 4:
-                    if (Bichos.bichos[1][1] != null) {
-                        sigueJugando = true;
-                    }
-                    break;
-            }
+        if (Bichos.bichos[0][1] != null) {
+            sigueJugando = true;
+        }
+
+        if (Bichos.bichos[1][0] != null) {
+            sigueJugando = true;
+        }
+
+        if (Bichos.bichos[1][1] != null) {
+            sigueJugando = true;
         }
         return sigueJugando;
     }

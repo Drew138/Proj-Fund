@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.Duration;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.Math;
 
 public class Principal {
     private static String comandos = "                               Ingrese la accion a realizar                               \n"
@@ -71,7 +72,7 @@ public class Principal {
                             String marca = scan.next();
                             System.out.print("Ingrese el color de su vehiculo: ");
                             String color = scan.next();
-                            System.out.print("Ingrese el tipo de su vehiculo: ");
+                            System.out.print("Ingrese el tipo de su vehiculo (carro/moto): ");
                             String tipo = scan.next();
                             Vehiculo vehiculo;
                             switch (tipo) {
@@ -110,7 +111,7 @@ public class Principal {
                             String color = scan.next();
                             System.out.print("Ingrese el valor comercial de su vehiculo: ");
                             int valorComercial = scan.nextInt();
-                            System.out.print("Ingrese el tipo de su vehiculo: ");
+                            System.out.print("Ingrese el tipo de su vehiculo (carro/moto): ");
                             String tipo = scan.next();
                             Vehiculo vehiculo;
                             switch (tipo) {
@@ -187,11 +188,14 @@ public class Principal {
                             Vehiculo.vehiculos[lugar] = null;
 
                             LocalDateTime fechaActual = LocalDateTime.now();
-                            long diferencia = Duration.between(fechaActual, vehiculo.getFechaEntrada()).toMinutes();
+                            long diferencia = Math
+                                    .abs(Duration.between(fechaActual, vehiculo.getFechaEntrada()).toMinutes()) + 1;
                             String tipoVehiculo = vehiculo.getTipo();
                             int precioHora = tipoVehiculo == "moto" ? cobroMoto : cobroCarro;
                             float cobro = (((float) precioHora) / 60) * diferencia;
-
+                            System.out.println("Su hora de entrada fue " + vehiculo.getFechaEntrada() + ".");
+                            System.out.println("Su hora de salida es " + fechaActual + ".");
+                            System.out.println("Estuvo un total de " + diferencia + " minutos.");
                             System.out.println("Su cobro total es de: " + cobro);
                         } else {
                             System.out.println("Este espacio no contiene ningun vehiculo");
